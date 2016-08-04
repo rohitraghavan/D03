@@ -25,8 +25,13 @@
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
-    # +++your code here+++
-    return
+    returnstr = "Number of donuts: "
+    #if count <10, add the exact count, else add many to the original text
+    if count < 10:
+        returnstr = returnstr + str(count)
+    else:
+        returnstr = returnstr + "many"
+    return returnstr
 
 
 # B. both_ends
@@ -35,8 +40,11 @@ def donuts(count):
 # so 'spring' yields 'spng'. However, if the string length
 # is less than 2, return instead the empty string.
 def both_ends(s):
-    # +++your code here+++
-    return
+    returnstr = ""
+    #If string is longer than 2 chars, return string with first 2 and last 2 chars concatenated
+    if len(s) > 2:
+        returnstr = s[0:2] + s[-2:]
+    return returnstr
 
 
 # C. fix_start
@@ -49,8 +57,13 @@ def both_ends(s):
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
-    # +++your code here+++
-    return
+    # s1 is a new string with first char removed
+    s1 = s[1:]
+    # Replace chars in the string which are same as the removed char with *
+    replacedstr = s1.replace(s[0],'*')
+    #Add back the first removed char
+    returnstr = s[0] + replacedstr
+    return returnstr
 
 
 # D. MixUp
@@ -61,8 +74,11 @@ def fix_start(s):
 #   'dog', 'dinner' -> 'dig donner'
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
-    # +++your code here+++
-    return
+    # Mixed a is first 2 chars of b concatenated with chars other than first 2 of a
+    mixeda = b[0:2] + a[2:]
+    # Mixed b is first 2 chars of a concatenated with chars other than first 2 of b
+    mixedb = a[0:2] + b[2:]
+    return mixeda + " " + mixedb
 
 
 # Provided simple test() function used in main() to print

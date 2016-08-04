@@ -9,9 +9,17 @@
 # if x > y, 0 if x == y, and -1 if x < y."
 # When you submit only include your final function: compare
 
-
-
-
+# Method returns 1 if x > y, 0 if x = y, -1 if x < y
+# Params - x, y
+def compare(x, y):
+	retval=0
+	if x > y:
+		retval = 1
+	elif x == y:
+		retval = 0
+	elif x  < y:
+		retval = -1
+	return retval
 
 ###############################################################################
 # Exercise 6.2
@@ -22,9 +30,10 @@
 # Do develop incrementally. Do not share in your final push your incremental
 # work.
 
-
-
-
+# Method with returns the hypotenuse length given lengths side1 and side2
+# Params - side1, side2
+def hypotenuse(side1, side2):
+	return (side1 * side1 + side2 * side2) ** 0.5
 
 ###############################################################################
 # Exercise 6.4
@@ -32,9 +41,13 @@
 # or False otherwise"
 # When you submit only include your final function: is_between
 
-
-
-
+#Method returns True if x ≤ y ≤ z or False otherwise
+#Params - x, y, z
+def is_between(x, y, z):
+	retval = False
+	if x <= y and y <= z:
+		retval = True
+	return retval
 
 ###############################################################################
 # Exercise 3.2
@@ -44,8 +57,18 @@
 # string."
 # When you submit only include your final function: is_palindrome
 
-
-
+#Method returns True if input is a palindrome, False otherwise
+#Params - inputstr
+def is_palindrome(inputstr):
+	#If length is 1 or 0, then return back with True
+	if len(inputstr) < 2:
+		return True
+	#If first and last digits arent equal return false
+	if inputstr[0] != inputstr[-1]:
+		return False
+	#Call recursively for the string with first and last chars removed
+	is_palindrome(inputstr[1:-2])
+	return True
 
 
 ###############################################################################
@@ -58,8 +81,17 @@
 # (whole numbers not including zero)
 # When you submit only include your final function: is_power
 
-
-
+#Method returns True if a is a power of b, else returns false
+#Params - a, b
+def is_power(a, b):
+	c = a / b
+	#If c == 1, then it is divisible, and return true
+	if c == 1:
+		return True
+	#Check if no remainder, and also call recursively for a/b
+	if a % b == 0 and is_power(c,b):
+		return True
+	return False
 
 
 ###############################################################################
@@ -77,28 +109,33 @@ def main():
     ###########################################################################
     # # Uncomment the below to test and before commiting:
     # # Exercise 1
-    # print(compare(1, 1))
-    # print(compare(1, 2))
-    # print(compare(2, 1))
+    print("compare")
+    print(compare(1, 1))
+    print(compare(1, 2))
+    print(compare(2, 1))
     # # # Exercise 2
-    # print(hypotenuse(1, 1))
-    # print(hypotenuse(3, 4))
-    # print(hypotenuse(1.2, 12))
+    print("hypotenuse")
+    print(hypotenuse(1, 1))
+    print(hypotenuse(3, 4))
+    print(hypotenuse(1.2, 12))
     # # # Exercise 3
-    # print(is_between(1, 2, 3))
-    # print(is_between(2, 1, 3))
-    # print(is_between(3, 1, 2))
-    # print(is_between(1, 1, 2))
+    print("is_between")
+    print(is_between(1, 2, 3))
+    print(is_between(2, 1, 3))
+    print(is_between(3, 1, 2))
+    print(is_between(1, 1, 2))
     # # # Exercise 6
-    # print(is_palindrome("Python"))
-    # print(is_palindrome("evitative"))
-    # print(is_palindrome("sememes"))
-    # print(is_palindrome("oooooooooooo"))
+    print("is_palindrome")
+    print(is_palindrome("Python"))
+    print(is_palindrome("evitative"))
+    print(is_palindrome("sememes"))
+    print(is_palindrome("oooooooooooo"))
     # # # Exercise 7
-    # print(is_power(28, 3))
-    # print(is_power(27, 3))
-    # print(is_power(248832, 12))
-    # print(is_power(248844, 12))
+    print("is_power")
+    print(is_power(28, 3))
+    print(is_power(27, 3))
+    print(is_power(248832, 12))
+    print(is_power(248844, 12))
 
 
 if __name__ == "__main__":
